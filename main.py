@@ -28,7 +28,7 @@ mycoll = initdb()
 
 while True:
 
-    sleep(60 - time() % 60)  # this sentence guarantees that the complete loop repeats every minute
+    #sleep(60 - time() % 60)  # this sentence guarantees that the complete loop repeats every minute
 
     measurement_timestamp = datetime.datetime.utcnow()
 
@@ -43,10 +43,10 @@ while True:
 
         crypto_obj['name']        = coin_cg
         crypto_obj['timestamp']   = measurement_timestamp
-        crypto_obj['priceusd_cg'] = a[coin_cg]['usd']
+        crypto_obj['priceusd'] = a[coin_cg]['usd']
         crypto_pack.append(crypto_obj)
 
-        print(f'''The price for {coin_cg} is {crypto_obj['priceusd_cg']:.2f}''')
+        print(f'''The price for {coin_cg} is {crypto_obj['priceusd']:.2f}''')
 
     mycoll.insert_many(crypto_pack) 
     exit()
